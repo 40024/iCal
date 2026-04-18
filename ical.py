@@ -16,7 +16,6 @@ def month_weekday_map(month, year):
     for day_in_month in range(1, days_in_month + 1):
         datetime_in_month = date(year, month, day_in_month)
         raw_mappings.append(f"{names[datetime_in_month.weekday()]} {day_in_month}")
-    print(raw_mappings)
     print("\n".join(raw_mappings))
 
 
@@ -28,7 +27,6 @@ if __name__ == "__main__":
 
             if len(str(y)) == 2:
                 y = int("20" + str(y))
-                print(f"Normalized year to {y} from {(sys.argv[2])}")
 
             month_weekday_map(m, y)
         except ValueError:
