@@ -7,6 +7,9 @@ import calendar
 import sys
 
 
+def _format_year(today: int) -> int:
+    return int(str(today.year)[2:])
+
 def month_weekday_map(month, year):
     days_in_month = calendar.monthrange(year, month)[1]
 
@@ -31,3 +34,9 @@ if __name__ == "__main__":
             month_weekday_map(m, y)
         except ValueError:
             print("Usage: script.py [month] [year]")
+    else:
+        if sys.argv[1] == "now" or "n":
+            today = date.today()
+            formatted_year = _format_year(today)
+
+            month_weekday_map(today.month, formatted_year)
