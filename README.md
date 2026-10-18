@@ -1,10 +1,10 @@
 
-# What and Why 
+# What and Why
 Whenever making plans, I find myself leaning toward unix cal
 
 Similar to how cal can be used to print a calendar, I wanted a way to print (Date, Weekday) pairs whenever documenting plans
 
-iCal prints a new-line by default mapping of weekday abbreviations to day numbers for a month
+iCal prints mapping of weekday abbreviations to day numbers for a month
 
 # Example output
 python ical.py 5 2026

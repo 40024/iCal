@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-# Print a separated (new-line by default) mapping of weekday abbreviations to day numbers for a month.
 # Example output for April 2026: "Wed 1, Thu 2, Fri 3, Sat 4, Sun 5, Mon 6, ..."
 
 from datetime import date
@@ -11,6 +9,7 @@ def _format_year(today: int) -> int:
     return int(str(today.year)[2:])
 
 def month_weekday_map(month, year):
+    print(f"iCal for {month} {year}")
     days_in_month = calendar.monthrange(year, month)[1]
 
     names = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
@@ -23,7 +22,11 @@ def month_weekday_map(month, year):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) == 3:
+    help_message = "Usage: script.py [month] [year]"
+
+    if len(sys.argv) == 1:
+        print(help_message)
+    elif len(sys.argv) == 3:
         try:
             m = int(sys.argv[1])
             y = int(sys.argv[2])
@@ -33,7 +36,7 @@ if __name__ == "__main__":
 
             month_weekday_map(m, y)
         except ValueError:
-            print("Usage: script.py [month] [year]")
+            print(help_message)
     else:
         if sys.argv[1] == "now" or "n":
             today = date.today()
